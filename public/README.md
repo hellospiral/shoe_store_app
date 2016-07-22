@@ -10,9 +10,10 @@ The app allows a user to add shoe stores to create, read, update, and delete bot
 
 ## Setup/Installation Requirements
 
-### Server Setup Instructions:
+### Setup Instructions:
 * Clone this repo
 * In the terminal, navigate to the top level of the cloned directory and run bundle install
+* If you have PostgreSQL installed, start it and run psql in the terminal
 * While still in the top level of the cloned repo, run rake db:migrate
 * Open an http server in the top level of the cloned directory. For a mac, run this command in your terminal:
 * ruby app.rb
