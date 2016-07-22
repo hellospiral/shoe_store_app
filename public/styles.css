@@ -1,0 +1,13 @@
+.jumbotron {
+    position: relative;
+    background: #000 url('https://images.unsplash.com/photo-1448387473223-5c37445527e7?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0f4530500bac3bf70a74e6e47cbb03ef') center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+}
+
+/*.change_color {
+  color: black;
+}*/

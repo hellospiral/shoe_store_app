@@ -73,9 +73,16 @@ describe('the brand path', {:type => :feature}) do
   it('updates the information for a brand') do
     brand = Brand.create(name: "Reebok")
     visit('/brands/' + brand.id.to_s)
-    click_link('Edit Brand')
+    click_link('Edit Brand Name')
     fill_in('Name:', with: 'Keds')
     click_button('Update Brand')
     expect(page).to have_content('Keds')
+  end
+
+  it('deletes a brand') do
+    brand = Brand.create(name: "Smith")
+    visit('/brands/' + brand.id.to_s)
+    click_button('Delete Brand')
+    expect(page).to have_no_content("Smith")
   end
 end

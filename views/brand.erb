@@ -1,6 +1,11 @@
 <h1><%= @brand.name %></h1>
 
-<a href="/brands/<%=@brand.id()%>/edit" class="btn btn-warning">Edit Brand</a>
+<a href="/brands/<%=@brand.id()%>/edit" class="btn btn-warning">Edit Brand Name</a>
+<form class="" action="/brands/<%= @brand.id() %>" method="post">
+  <input name = "_method" type="hidden" value="delete">
+  <button class = 'btn btn-danger' type="submit">Delete Brand</button>
+</form>
+
 
 <h4>Stores that sell <%= @brand.name %>:</h4>
 <ul class="list-group">
