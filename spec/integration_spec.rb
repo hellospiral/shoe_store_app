@@ -48,4 +48,15 @@ describe('the brand path', {:type => :feature}) do
     click_button('Add Brand')
     expect(page).to have_content("Nike")
   end
+
+  it('associates brands with stores') do
+    store = Store.create(name: "Bob's shoes")
+    brand1 = Brand.create(name: 'Vike')
+    brand2 = Brand.create(name: 'Zide')
+    visit('/stores/' + store.id.to_s)
+    check(brand1.name)
+    check(brand2.name)
+    click_button('Add Brands')
+    expect(page).to have_content("Brands sold at " + store.name().to_s + " " + brand1.name.to_s + " " + brand2.name.to_s)
+  end
 end

@@ -18,6 +18,7 @@ post('/stores') do
 end
 
 get('/stores/:id') do
+  @brands = Brand.all()
   @store = Store.find(params['id'].to_i)
   erb(:store)
 end
@@ -42,10 +43,21 @@ delete('/stores/:id') do
   redirect('/')
 end
 
+####
+
 post('/brands') do
   name = params['brand_name']
   @brand = Brand.create({name: name})
   redirect to('/')
+end
+
+#### Associating brands with stores
+
+patch('/stores/:id/brands') do
+  @store = Store.find(params['id'].to_i)
+  brand_ids = params['brand_ids']
+  @store.update({brand_ids: brand_ids})
+  redirect('/stores/' + @store.id.to_s)
 end
 
 # get('/brands/:id') do
