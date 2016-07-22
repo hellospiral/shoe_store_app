@@ -64,3 +64,15 @@ get('/brands/:id') do
   @brand = Brand.find(params['id'].to_i)
   erb(:brand)
 end
+
+get('/brands/:id/edit') do
+  @brand = Brand.find(params['id'])
+  erb(:brand_edit)
+end
+
+patch('/brands/:id') do
+  @brand = Brand.find(params['id'].to_i)
+  name = params['name']
+  @brand.update({name: name})
+  redirect('/brands/' + @brand.id.to_s)
+end

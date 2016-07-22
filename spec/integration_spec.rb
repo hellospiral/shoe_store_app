@@ -69,4 +69,13 @@ describe('the brand path', {:type => :feature}) do
     expect(page).to have_content(store.name.to_s)
     expect(page).to have_content(store1.name.to_s)
   end
+
+  it('updates the information for a brand') do
+    brand = Brand.create(name: "Reebok")
+    visit('/brands/' + brand.id.to_s)
+    click_link('Edit Brand')
+    fill_in('Name:', with: 'Keds')
+    click_button('Update Brand')
+    expect(page).to have_content('Keds')
+  end
 end

@@ -1,5 +1,7 @@
 <h1><%= @brand.name %></h1>
 
+<a href="/brands/<%=@brand.id()%>/edit" class="btn btn-warning">Edit Brand</a>
+
 <h4>Stores that sell <%= @brand.name %>:</h4>
 <ul class="list-group">
   <% @brand.stores.each() do |store| %>
