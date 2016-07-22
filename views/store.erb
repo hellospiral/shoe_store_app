@@ -8,6 +8,10 @@
 </div>
 <a href="/stores/<%=@store.id()%>/edit" class="btn btn-warning">Edit Store</a>
 <br>
+<form class="" action="/stores/<%= @store.id() %>" method="post">
+  <input name = "_method" type="hidden" value="delete">
+  <button class = 'btn btn-danger' type="submit">Delete Store</button>
+</form>
 <br>
 
 <a href="/" class="btn btn-default active" role="button">Home</a>

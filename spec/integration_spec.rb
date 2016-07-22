@@ -32,4 +32,11 @@ describe('the store path', {:type => :feature}) do
     click_button('Update Store')
     expect(page).to have_content('4321 Main St')
   end
+
+  it('deletes a store') do
+    store = Store.create(name: "Bob's shoes")
+    visit('/stores/' + store.id.to_s)
+    click_button('Delete Store')
+    expect(page).to have_no_content("Bob's shoes")
+  end
 end

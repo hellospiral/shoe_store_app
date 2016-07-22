@@ -33,3 +33,9 @@ patch('/stores/:id') do
   @store.update({name: name, address: address, phone: phone})
   redirect('/stores/' + @store.id.to_s)
 end
+
+delete('/stores/:id') do
+  store = Store.find(params['id'].to_i)
+  store.destroy()
+  redirect('/')
+end
