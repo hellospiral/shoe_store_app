@@ -40,3 +40,12 @@ describe('the store path', {:type => :feature}) do
     expect(page).to have_no_content("Bob's shoes")
   end
 end
+
+describe('the brand path', {:type => :feature}) do
+  it('creates a new brand through a form on the index page') do
+    visit('/')
+    fill_in('brand_name', with: "Nike")
+    click_button('Add Brand')
+    expect(page).to have_content("Nike")
+  end
+end

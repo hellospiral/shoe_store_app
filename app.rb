@@ -4,9 +4,11 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get('/') do
   @stores = Store.all()
+  @brands = Brand.all()
   erb(:index)
 end
 
+# CRUD for stores
 post('/stores') do
   name = params['name']
   address = params['address']
@@ -39,3 +41,14 @@ delete('/stores/:id') do
   store.destroy()
   redirect('/')
 end
+
+post('/brands') do
+  name = params['brand_name']
+  @brand = Brand.create({name: name})
+  redirect to('/')
+end
+
+# get('/brands/:id') do
+#   @brand = Brand.find(params['id'].to_i)
+#   erb(:brand)
+# end
