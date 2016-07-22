@@ -60,7 +60,7 @@ patch('/stores/:id/brands') do
   redirect('/stores/' + @store.id.to_s)
 end
 
-# get('/brands/:id') do
-#   @brand = Brand.find(params['id'].to_i)
-#   erb(:brand)
-# end
+get('/brands/:id') do
+  @brand = Brand.find(params['id'].to_i)
+  erb(:brand)
+end

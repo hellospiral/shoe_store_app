@@ -21,7 +21,7 @@
     <% end %>
   </ul>
 <% end %>
-<h4>Select the brands you want to sell at <%= @store.name %></h4>
+<h4>Select which brands you want to sell at <%= @store.name %></h4>
 <form action="/stores/<%=@store.id%>/brands" method="post">
   <input type="hidden" name="_method" value="patch">
   <% @brands.each() do |brand| %>

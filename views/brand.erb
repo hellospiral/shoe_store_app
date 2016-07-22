@@ -1,0 +1,12 @@
+<h1><%= @brand.name %></h1>
+
+<h4>Stores that sell <%= @brand.name %>:</h4>
+<ul class="list-group">
+  <% @brand.stores.each() do |store| %>
+    <li class="list-group-item"><a href="/stores/<%= store.id.to_s() %>"><%= store.name() %></a></li>
+  <% end %>
+</ul>
+<br>
+<hr>
+<br>
+<a href="/" class="btn btn-default active" role="button">Home</a>

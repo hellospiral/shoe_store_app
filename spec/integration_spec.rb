@@ -59,4 +59,14 @@ describe('the brand path', {:type => :feature}) do
     click_button('Add Brands')
     expect(page).to have_content("Brands sold at " + store.name().to_s + " " + brand1.name.to_s + " " + brand2.name.to_s)
   end
+
+  it('lists which stores sell a particular brand') do
+    store = Store.create(name: "Bob's")
+    store1 = Store.create(name: "Mike's")
+    brand1 = Brand.create(name: 'Vike')
+    brand1.stores.push(store, store1)
+    visit('/brands/' + brand1.id.to_s)
+    expect(page).to have_content(store.name.to_s)
+    expect(page).to have_content(store1.name.to_s)
+  end
 end

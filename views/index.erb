@@ -1,49 +1,51 @@
-<h4>Here are the current stores:</h4>
+<div class="row container">
+  <div class="col-md-6">
+    <h4>Here are the current stores:</h4>
 
-<ul class="list-group">
-  <% @stores.each() do |store| %>
-  <li class="list-group-item"><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
-  <% end %>
-</ul>
+    <ul class="list-group">
+      <% @stores.each() do |store| %>
+      <li class="list-group-item"><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
+      <% end %>
+    </ul>
 
-<h5>Add a new store:</h5>
-<div class="well">
-  <form action="/stores" method="post">
-    <div class='form-group'>
-      <label for="name">Store Name:</label>
-      <input type="text" name="name" id = "name">
+    <h5>Add a new store:</h5>
+    <div class="well">
+      <form action="/stores" method="post">
+        <div class='form-group'>
+          <label for="name">Store Name:</label>
+          <input type="text" name="name" id = "name">
+        </div>
+        <div class='form-group'>
+          <label for="address">Store Address:</label>
+          <input type="text" name="address" id = "address">
+        </div>
+        <div class='form-group'>
+          <label for="phone">Store Phone Number:</label>
+          <input type="text" name="phone" id = "phone">
+        </div>
+        <button class = 'btn btn-default' type="submit">Add Store</button>
+      </form>
     </div>
-    <div class='form-group'>
-      <label for="address">Store Address:</label>
-      <input type="text" name="address" id = "address">
+  </div>
+  <div class='col-md-6'>
+    <h4>Here are the current brands:</h4>
+
+    <ul class="list-group">
+      <% @brands.each() do |brand| %>
+      <li class="list-group-item"><a href="brands/<%=brand.id()%>"><%= brand.name() %></a></li>
+      <% end %>
+    </ul>
+
+    <h5>Add a new brand:</h5>
+    <div class="well">
+      <form action="/brands" method="post">
+        <div class='form-group'>
+          <label for="brand_name">Store Name:</label>
+          <input type="text" name="brand_name" id = "brand_name">
+        </div>
+        <button class = 'btn btn-default' type="submit">Add Brand</button>
+      </form>
     </div>
-    <div class='form-group'>
-      <label for="phone">Store Phone Number:</label>
-      <input type="text" name="phone" id = "phone">
-    </div>
-    <button class = 'btn btn-default' type="submit">Add Store</button>
-  </form>
+  </div>
 </div>
-<br>
-<hr>
-
-<h4>Here are the current brands:</h4>
-
-<ul class="list-group">
-  <% @brands.each() do |brand| %>
-  <li class="list-group-item"><%= brand.name() %></li>
-  <% end %>
-</ul>
-
-<h5>Add a new brand:</h5>
-<div class="well">
-  <form action="/brands" method="post">
-    <div class='form-group'>
-      <label for="brand_name">Store Name:</label>
-      <input type="text" name="brand_name" id = "brand_name">
-    </div>
-    <button class = 'btn btn-default' type="submit">Add Brand</button>
-  </form>
-</div>
-<br>
 <hr>
